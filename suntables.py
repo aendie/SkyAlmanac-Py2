@@ -150,7 +150,6 @@ def suntabm(date):
     \end{tabular}"""
     return tab
 
-
 def NSdeg(deg,modern=False,hr=0,forceNS=False):
     # reformat degrees latitude to Ndd°mm.m or Sdd°mm.m
     if deg[0:1] == '-':

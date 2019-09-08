@@ -299,6 +299,7 @@ def GHAcolong(gha):
         coGHA = coGHA - 360
     return coGHA
 
+
 def sunmoontab(date):
     # generates LaTeX table for sun and moon (traditional style)
     tab = r'''\noindent
