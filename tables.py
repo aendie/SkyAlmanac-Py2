@@ -760,16 +760,11 @@ def almanac(first_day, pagenum):
     \usepackage[ top=21mm, bottom=21mm, left=12mm, right=8mm]{geometry}
     \usepackage{multirow}
 """
-        if config.moonimg:
-            alm = alm + r"""
-    \usepackage[table]{xcolor}
-    \definecolor{darknight}{rgb}{0.18, 0.27, 0.33}
-"""
 
     alm = alm + r"""
     \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
     \usepackage[pdftex]{graphicx}	% for \includegraphics
-    \usepackage{tikz}				% for \draw  (load after 'graphicx')
+
     \begin{document}
 
     \begin{titlepage}
