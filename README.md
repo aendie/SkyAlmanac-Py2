@@ -25,7 +25,6 @@ An aim of this development was to maintain:
 The results have been crosschecked with USNO data to some extent.  
 (However, constructive feedback is always appreciated.)
 
-
 ## Requirements
 
 &nbsp;&nbsp;&nbsp;&nbsp;Computation is done by the free PyEphem and Skyfield libraries.  
