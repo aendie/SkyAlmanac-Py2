@@ -16,7 +16,7 @@ NOTE: a 100% [PyEphem](https://rhodesmill.org/pyephem/) version of SkyAlmanac is
 An aim of this development was to maintain:
 
 * **identical PDF output formatting with a similar control program**  
-	 It is then possible to display both generated tables (from PyEphem, Skyfield and SkyAlmanac) and compare what has changed by flipping between the two tabs in the Adobe Acrobat Reader DC.
+	 It is then possible to display both generated tables (from PyEphem, Skyfield and SkyAlmanac) and compare what has changed by flipping between the two tabs in Adobe Acrobat Reader DC.
 	 Anything that has changed flashes, thereby drawing your attention to
 	 it. This crude and simple method is quite effective in highlihgting data that might need further attention.
 
