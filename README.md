@@ -59,7 +59,8 @@ This also includes some very minor changes and an improved title page for the fu
 &nbsp;&nbsp;&nbsp;&nbsp;**pip install pandas**  
 
 &nbsp;&nbsp;&nbsp;&nbsp;NOTE: if Python 3 is already installed, you need to be in the Scripts folder - otherwise the Py3 version of pip will execute.
-&nbsp;&nbsp;&nbsp;&nbsp;Put the SkyAalmanac files in any folder, go there and start with:  
+
+&nbsp;&nbsp;&nbsp;&nbsp;Put the SkyAalmanac files in a new folder, run Command Prompt and start with:  
 &nbsp;&nbsp;&nbsp;&nbsp;**python.exe skyalmanac.py**  
 
 &nbsp;&nbsp;&nbsp;&nbsp;However, if Python 3 is also installed, start with:  

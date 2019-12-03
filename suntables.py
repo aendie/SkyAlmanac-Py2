@@ -77,7 +77,7 @@ def suntab(date):
             tab = tab + r"""\multicolumn{1}{c}{}\\[-0.5ex]"""
         n += 1
         date += datetime.timedelta(days=1)
-    tab = tab+r"""\end{tabular*}"""
+    tab = tab + r"""\end{tabular*}"""
     return tab
 
 def suntabm(date):
@@ -213,10 +213,10 @@ def declCompare(prev_deg, curr_deg, next_deg, hr):
 def NSdecl(deg, hr, printNS, printDEG, modernFMT):
     # reformat degrees latitude to Ndd°mm.m or Sdd°mm.m
     if deg[0:1] == '-':
-        hemisph = "S"
+        hemisph = 'S'
         deg = deg[1:]
     else:
-        hemisph = "N"
+        hemisph = 'N'
     if not(printDEG):
         deg = deg[4:]	# skip the degrees (always dd°mm.m) - note: the degree symbol '°' is two bytes long
         if (hr+3)%6 == 0:
@@ -271,7 +271,7 @@ def page(date):
     return page
 
 
-def pages(first_day,p):
+def pages(first_day, p):
     # make 'p' pages beginning with first_day
     out = ''
     for i in range(p):
@@ -380,7 +380,7 @@ def almanac(first_day, pagenum):
 """
     if config.tbls == "m":
         alm = alm + r"""\vspace*{3cm}
-"""	
+"""
     else:
         alm = alm + r"""\vspace*{1.5cm}
 """

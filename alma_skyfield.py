@@ -30,7 +30,6 @@ from skyfield.data import hipparcos
 
 #load    = Loader('~/Documents/fishing/SkyData')  # avoids multiple copies of large files
 
-#twopi = 2 * math.pi
 ts = load.timescale()	# timescale object
 hipparcos_epoch = ts.tt(1991.25)
 eph = load('de421.bsp')	# ephemeris, valid between 1900 and 2050
@@ -91,7 +90,6 @@ def sunSD(d):
     dsm = "%0.1f" %(ds * 60)	# convert to minutes of arc
     return sdsm, dsm
 
-
 def moonSD(d):
     # compute semi-diameter of moon (in minutes)
     t12 = ts.utc(d.year, d.month, d.day, 12, 0, 0)
@@ -101,7 +99,6 @@ def moonSD(d):
     sdm = math.degrees(math.atan(1738.1/dist_km))	# equatorial radius of moon = 1738.1 km
     sdmm = "%0.1f" %(sdm * 60)	# convert to minutes of arc
     return sdmm
-
 
 def moonGHA(d):
     # compute moon's GHA, DEC and HP per hour of day
@@ -144,7 +141,6 @@ def moonGHA(d):
     # ghaSoD, ghaEoD = GHA at Start/End of Day assuming time is rounded to hh:mm
     return gham, decm, degm, HPm, GHAupper, GHAlower, ghaSoD, ghaEoD
 
-
 def GHAcolong(gha):
     # return the colongitude, e.g. 270° returns 90°
     coGHA = gha + 180
@@ -182,7 +178,6 @@ def moonVD(d0,d):
         V0 = V1		# store current value as next previous value
         D0 = D1		# store current value as next previous value
     return moonVm, moonDm
-
 
 def norm(delta):
     # normalize the angle between 0° and 360°
@@ -454,7 +449,6 @@ def saturnGHA(d):
     #    print i, ghas[i]
     return ghas, decs, degs
 
-
 def stellar_info(d):
     # returns a list of lists with name, SHA and Dec all navigational stars for epoch of date.
 
@@ -491,12 +485,12 @@ def gha2deg(gst, ra):
         sha = sha + 360
     return sha
 
-def fmtdeg(deg,fixedwidth=1):
+def fmtdeg(deg, fixedwidth=1):
     # formats the angle (deg) to that used in the nautical almanac (ddd°mm.m)
 	# the optional argument specifies the minimum width for the degrees
     theminus = ""
     if deg < 0:
-    	theminus = "-"
+    	theminus = '-'
     df = abs(deg)
     di = int(df)
     mf = round((df-di)*60, 1)	# minutes (float), rounded to 1 decimal place
@@ -514,7 +508,6 @@ def fmtdeg(deg,fixedwidth=1):
         else:
             gm = "%s%s°%04.1f" %(theminus,di,mf)
     return gm
-
 
 # List of navigational stars with Hipparcos Catalog Number
 db = """
@@ -630,7 +623,6 @@ def rise_set(t, y, lats):
 
     return rise, sett, ris2, set2
 
-
 def rise_set_error(y, lats, t0):
     if config.logfileopen:
         # unexpected rise/set values - write to log file
@@ -650,7 +642,6 @@ def rise_set_error(y, lats, t0):
         print("%s" %t0.utc_iso())
     return
 
-
 def daylength(topos, degBelowHorizon):
     # Build a function of time that returns the daylength.
     topos_at = (earth + topos).at
@@ -665,7 +656,6 @@ def daylength(topos, degBelowHorizon):
 
     is_sun_up_at.rough_period = 0.5  # twice a day
     return is_sun_up_at
-
 
 def moonday(topos, degBelowHorizon):
     # Build a function of time that returns the "moonlight daylength".
@@ -717,7 +707,6 @@ def getGHA(d, hh, mm, ss):
     ra = pos.apparent().radec(epoch='date')[0]
     gha = gha2deg(t1.gast, ra.hours)
     return gha      # GHA as float (degrees)
-
 
 def find_transit(d, ghaList, modeLT):
     # ghaList contains the 'hourly' GHA values on day 'd' for the times:
@@ -882,7 +871,6 @@ def gha2mpa(gha):
         hr += 1
     hhmm = '%02d:%02d' %(hr,min)
     return hhmm
-
 
 def gha2eqt(gha):
     # format an hour angle as 'Eqn. of Time' (mm:ss)

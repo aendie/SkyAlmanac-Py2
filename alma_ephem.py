@@ -87,14 +87,13 @@ def twilight(date, lat):
     obs = ephem.Observer()
     latitude = ephem.degrees('%s:00:00.0' %lat)
     obs.lat = latitude
-    d = ephem.date(date) - 30 * ephem.second    # search from 30 seconds before midnight
+    d = ephem.date(date - 30 * ephem.second)    # search from 30 seconds before midnight
     obs.date = d
     obs.pressure = 0
     s = ephem.Sun(obs)
     s.compute(d)
     r = s.radius
 
-    # Nautical Twilight...
     obs.horizon = ephem.degrees('-12')+r	# Nautical twilight ...
     try:
         out[0] = time(obs.next_rising(s))	# begin
@@ -105,8 +104,7 @@ def twilight(date, lat):
         out[5] = time(obs.next_setting(s))	# end
     except:
         out[5] = '--:--'
-
-    # Civil Twilight...
+#-----------------------------------------------------------
     obs.horizon = ephem.degrees('-6')+r		# Civil twilight...
     obs.date = d
     try:
@@ -118,8 +116,7 @@ def twilight(date, lat):
         out[4] = time(obs.next_setting(s))	# end
     except:
         out[4] = '--:--'
-
-    # Sunrise/Sunset...
+#-----------------------------------------------------------
     obs.horizon = '-0:34'
     obs.date = d
     try:
@@ -134,7 +131,7 @@ def twilight(date, lat):
     
     return out
 
-def moonrise_set(date,lat):
+def moonrise_set(date, lat):
     # returns moonrise and moonset for the given date and latitude plus next 2 days:
     #    rise day 1, rise day 2, rise day 3, set day 1, set day 2, set day 3
 

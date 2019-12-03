@@ -40,7 +40,7 @@ syr  = "%s" % d.year
 symd = syr + smth + sday
 sdmy = sday + "." + smth + "." + syr
 
-s =  raw_input("""What do you want to create?:\n
+s = raw_input("""What do you want to create?:\n
     1   Full nautical almanac   (for a year)
     2   Just tables for the sun (for a year)
     3   Nautical almanac   - 6 days from today
@@ -50,7 +50,7 @@ s =  raw_input("""What do you want to create?:\n
 if s in set(['1', '2', '3', '4']):
     if int(s) < 3:
         print("Please enter the year you want to create the nautical almanac")
-        years =  raw_input("  for as yyyy ... or the FIRST and LAST year as yyyy-yyyy\n")
+        years = raw_input("  for as yyyy ... or the FIRST and LAST year as yyyy-yyyy\n")
         if len(years)== 4:
             yearfr = years
             yearto = years
@@ -99,7 +99,6 @@ if s in set(['1', '2', '3', '4']):
         config.decf = ''		# USNO format for Declination
     else:
         DecFmt = '[old]'
-
 
     if s == '1':
         print "Take a break - this computer needs some time for cosmic meditation."
@@ -155,9 +154,9 @@ if s in set(['1', '2', '3', '4']):
         stop = time.time()
         msg = "execution time = %0.2f seconds" %(stop-start)
         print(msg)
-        print
 ##        config.writeLOG('\n\n' + msg)
 ##        config.closeLOG()
+        print
         command = 'pdflatex %s' %filename
         os.system(command)
         print("finished")
