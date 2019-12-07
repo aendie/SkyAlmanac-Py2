@@ -19,9 +19,10 @@
 
 # This contains a few functions that calculate values for the nautical almanac
 
-import config
 import ephem        # for sunrise/sunset, moonrise/moonset, planet magnitudes
 import datetime
+import config
+import sys
 
 ephem_venus   = ephem.Venus()
 ephem_mars    = ephem.Mars()
