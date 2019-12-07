@@ -101,7 +101,7 @@ if s in set(['1', '2', '3', '4']):
         DecFmt = '[old]'
 
     if s == '1':
-        print "Take a break - this computer needs some time for cosmic meditation."
+        print "Take a break - this may take a while."
 ##        config.init()		# initialize log file
         for yearint in range(int(yearfr),int(yearto)+1):
             start = time.time()
@@ -117,8 +117,8 @@ if s in set(['1', '2', '3', '4']):
             stop = time.time()
             msg = "execution time = %0.2f seconds" %(stop-start)
             print(msg)
-            print
 ##            config.writeLOG("\n\n" + msg + "\n")
+            print
             command = 'pdflatex %s' %filename
             os.system(command)
             print("finished creating nautical almanac for %s" %year)
@@ -130,7 +130,8 @@ if s in set(['1', '2', '3', '4']):
     elif s == '2':
         for yearint in range(int(yearfr),int(yearto)+1):
             year = "%4d" %yearint
-            print("\nCreating the sun tables only for the year %s" %year)
+            msg = "\nCreating the sun tables only for the year %s" %(year)
+            print(msg)
             first_day = datetime.date(yearint, 1, 1)
             filename = "sunalmanac%s%s.tex" %(ff,year+DecFmt)
             outfile = open(filename, 'w')
@@ -146,7 +147,8 @@ if s in set(['1', '2', '3', '4']):
     elif s == '3':
 ##        config.init()		# initialize log file
         start = time.time()
-        print("\nCreating nautical almanac tables - from %s" %(sdmy))
+        msg = "\nCreating nautical almanac tables - from %s" %(sdmy)
+        print(msg)
         filename = "almanac%s%s.tex" %(ff,symd+DecFmt)
         outfile = open(filename, 'w')
         outfile.write(tables.almanac(first_day,2))
@@ -165,7 +167,8 @@ if s in set(['1', '2', '3', '4']):
         os.remove("almanac%s%s.aux" %(ff,symd+DecFmt))
 
     elif s == '4':
-        print("\nCreating the sun tables only - from %s" %(sdmy))
+        msg = "\nCreating the sun tables only - from %s" %(sdmy)
+        print(msg)
         filename = "sunalmanac%s%s.tex" %(ff,symd+DecFmt)
         outfile = open(filename, 'w')
         outfile.write(suntables.almanac(first_day,2))
