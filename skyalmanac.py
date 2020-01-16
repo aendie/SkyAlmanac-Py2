@@ -101,12 +101,12 @@ if s in set(['1', '2', '3', '4']):
         DecFmt = '[old]'
 
     if s == '1':
-        print "Take a break - this may take a while."
+        print "Be patient - this may take a while."
 ##        config.init()		# initialize log file
         for yearint in range(int(yearfr),int(yearto)+1):
             start = time.time()
             year = "%4d" %yearint
-            msg = "\nCreating the nautical almanac for the year %s" %year
+            msg = "\nCreating the nautical almanac for the year %s" %(year)
             print(msg)
 ##            config.writeLOG(msg)
             first_day = datetime.date(yearint, 1, 1)

@@ -477,7 +477,7 @@ def sunmoontabm(date):
     \quad\quad"""
     return tab
 
-##NEW##
+
 def declCompare(prev_deg, curr_deg, next_deg, hr):
     # for Declinations only...
     # decide if to print N/S; decide if to print degrees
@@ -636,7 +636,7 @@ def twilighttab(date):
 """
         lasthemisph = hemisph
         # day+1 to calculate for the second day (three days are printed on one page)
-        twi = twilight(date+datetime.timedelta(days=1), i)
+        twi = twilight(date+datetime.timedelta(days=1), i, hemisph)
         line = "\\textbf{%s}" % hs + " " + "%s°" %(abs(i))
         line = line + " & %s & %s & %s & %s & %s & %s \\\ \n" %(twi[0],twi[1],twi[2],twi[3],twi[4],twi[5])
         tab = tab + line
@@ -846,7 +846,6 @@ def almanac(first_day, pagenum):
         alm = alm + r"""
     \usepackage[ top=10mm, bottom=18mm, left=12mm, right=10mm ]{geometry}
     \usepackage[table]{xcolor}
-    \definecolor{darknight}{rgb}{0.18, 0.27, 0.33}
     \definecolor{LightCyan}{rgb}{0.88,1,1}
     \usepackage{booktabs}
     \usepackage{multirow}
@@ -860,7 +859,7 @@ def almanac(first_day, pagenum):
     alm = alm + r"""
     \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
     \usepackage[pdftex]{graphicx}	% for \includegraphics
-
+    \usepackage{tikz}				% for \draw  (load after 'graphicx')
     \begin{document}
 
     % for the title page only...
@@ -929,6 +928,6 @@ def almanac(first_day, pagenum):
     \restoregeometry    % so it does not affect the rest of the pages
 """
     alm = alm + pages(first_day,pagenum)
-    alm = alm + '\end{document}'
+    alm = alm + "\end{document}"
     return alm
 
