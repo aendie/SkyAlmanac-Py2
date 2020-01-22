@@ -17,9 +17,9 @@
 #     with this program; if not, write to the Free Software Foundation, Inc.,
 #     51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
+import sys
 import os
 from math import *
-
 
 def degmin(deg):
     #changes decimal degrees to the format usually used in the nautical almanac. (ddd°mm.m')
@@ -81,7 +81,6 @@ def vcorr(m,v):
 	corr=round(v*h,1)
 	return corr
 
-
 def inctab(min):
     """generates a latex table for increments"""
     tab = r'''\noindent
@@ -113,7 +112,6 @@ def allinctabs():
 		min += 1
 	return tab
 
-
 def dip(meter):
 	dip=60*0.0293*sqrt(meter)
 	return dip
@@ -136,8 +134,6 @@ def diptab():
 	"""
 	
 	return tab
-	
-
 
 def refrac(h):
 	r = 1/tan((h+7.31/(h+4.4))/180*pi)
@@ -168,7 +164,6 @@ def refractab():
 	\end{tabular}
 	"""
 	return tab
-
 
 def parallax(hp, deg, min):
 	#returns parallax in dec minutes from horizontal parallax, and Ha
@@ -257,11 +252,8 @@ def venparallax():
 	\end{tabular}
 	"""
 	return tab
-	
-	
-	
-	
-	
+
+
 def makelatex():
 	lx = r"""\documentclass[ 10pt, twoside, a4paper]{scrreprt}
 	\usepackage[automark]{scrpage2}
@@ -327,7 +319,10 @@ where $A$ is the azimuth angle, $L$ is the latitude, $d$ is the declination and 
 
 	\end{multicols} \end{document}'''
 	return lx
-    
+
+if sys.version_info[0] != 2:
+    raise Exception("This runs with Python 2.7")
+
 fn = "inc"
 filename = fn + ".tex"
 outfile = open(filename, 'w')
@@ -335,7 +330,7 @@ outfile.write(makelatex())
 outfile.close()
 command = 'pdflatex %s' %filename
 os.system(command)
-print "finished"
+print("finished")
 os.remove(fn + ".tex")
 os.remove(fn + ".log")
 os.remove(fn + ".aux")
