@@ -49,8 +49,8 @@ the [old](https://docs.python.org/2/library/stdtypes.html#string-formatting) sty
 &nbsp;&nbsp;&nbsp;&nbsp;Typesetting is done by LaTeX or MiKTeX so you first need to install:
 
 * Python v2.x (2.6 or later)
-* Skyfield 1.17 (latest tested version)
-* Pandas (to load the Hipparcos catalog; tested: 0.24.2, 0.25.3)
+* Skyfield 1.20 (latest tested version - older versions work too)
+* Pandas (to load the Hipparcos catalog; tested: 0.24.2, 0.25.3, 1.0.3)
 * PyEphem 3.7.6 or 3.7.7
 * TeX/LaTeX&nbsp;&nbsp;or&nbsp;&nbsp;MiKTeX&nbsp;&nbsp;or&nbsp;&nbsp;TeX Live
 
@@ -84,7 +84,8 @@ the [old](https://docs.python.org/2/library/stdtypes.html#string-formatting) sty
 
 &nbsp;&nbsp;&nbsp;&nbsp;Ubuntu 18 and earlier come with Python 2 preinstalled,  
 &nbsp;&nbsp;&nbsp;&nbsp;however pip may need to be installed:  
-&nbsp;&nbsp;&nbsp;&nbsp;**sudo apt install python-pip**
+&nbsp;&nbsp;&nbsp;&nbsp;**sudo apt install python-pip**  
+&nbsp;&nbsp;&nbsp;&nbsp;Note: Ubuntu 20.04 comes with Python 3 preinstalled, which is preferable to Python 2.
 
 &nbsp;&nbsp;&nbsp;&nbsp;Install the following TeX Live package:  
 &nbsp;&nbsp;&nbsp;&nbsp;**sudo apt install texlive-latex-extra**
