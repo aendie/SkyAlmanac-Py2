@@ -68,6 +68,13 @@ A new option has been added into config.py: *moonimg = True* will display a grap
 &nbsp;&nbsp;&nbsp;&nbsp;Please upgrade your Python as Python 2.7 won't be maintained after that date.  
 &nbsp;&nbsp;&nbsp;&nbsp;A future version of pip will drop support for Python 2.7.
 
+## Files required in the execution folder:
+
+* &ast;.py
+* Ra.jpg
+* croppedmoon.png
+* A4chart0-180_P.pdf
+* A4chart180-360_P.pdf
 
 ### INSTALLATION GUIDELINES on Windows 10:
 
