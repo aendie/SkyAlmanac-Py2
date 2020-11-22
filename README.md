@@ -61,7 +61,7 @@ A new option has been added into config.py: *moonimg = True* will display a grap
 * Python v2.x (2.6 or later)
 * Skyfield 1.31 (for best accuracy use 1.31 or higher - see the Skyfield Changelog)
 * Pandas (to load the Hipparcos catalog; tested: 0.24.2, 0.25.3)
-* PyEphem 3.7.6 or 3.7.7
+* Ephem 3.7.6 or 3.7.7
 * TeX/LaTeX&nbsp;&nbsp;or&nbsp;&nbsp;MiKTeX&nbsp;&nbsp;or&nbsp;&nbsp;TeX Live
 
 &nbsp;&nbsp;&nbsp;&nbsp;**DEPRECATION:** Python 2.7 will reach the end of its life on January 1st, 2020.  
@@ -90,9 +90,14 @@ A new option has been added into config.py: *moonimg = True* will display a grap
 
 &nbsp;&nbsp;&nbsp;&nbsp;**cd C:\\Python27\\Scripts**  
 &nbsp;&nbsp;&nbsp;&nbsp;**pip install wheel**  
-&nbsp;&nbsp;&nbsp;&nbsp;**pip install pyephem**  
+&nbsp;&nbsp;&nbsp;&nbsp;**pip uninstall pyephem**  
+&nbsp;&nbsp;&nbsp;&nbsp;**pip install ephem**  
 &nbsp;&nbsp;&nbsp;&nbsp;**pip install skyfield**  
 &nbsp;&nbsp;&nbsp;&nbsp;**pip install pandas**  
+
+&nbsp;&nbsp;&nbsp;&nbsp;NOTE: if Python 3 is already installed, you need to be in the Scripts folder - otherwise the Py3 version of pip will execute.  
+&nbsp;&nbsp;&nbsp;&nbsp;NOTE: you may get the following error:  
+&nbsp;&nbsp;&nbsp;&nbsp;**error: Microsoft Visual C++ 9.0 is required. Get it from http://aka.ms/vcpython27**
 
 &nbsp;&nbsp;&nbsp;&nbsp;On Windows 10 Version 2004 and 20H2 there is currently a bug that may cause the following error:  
 &nbsp;&nbsp;&nbsp;&nbsp;**RuntimeError: The current Numpy installation fails to pass a sanity check due to a bug in the windows runtime.**  
@@ -121,7 +126,8 @@ A new option has been added into config.py: *moonimg = True* will display a grap
 
 &nbsp;&nbsp;&nbsp;&nbsp;Install the required astronomical libraries etc.:  
 &nbsp;&nbsp;&nbsp;&nbsp;**pip install wheel**  
-&nbsp;&nbsp;&nbsp;&nbsp;**pip install pyephem**  
+&nbsp;&nbsp;&nbsp;&nbsp;**pip uninstall pyephem**  
+&nbsp;&nbsp;&nbsp;&nbsp;**pip install ephem**  
 &nbsp;&nbsp;&nbsp;&nbsp;**pip install skyfield**  
 &nbsp;&nbsp;&nbsp;&nbsp;**pip install pandas**  
 
@@ -137,7 +143,8 @@ A new option has been added into config.py: *moonimg = True* will display a grap
 &nbsp;&nbsp;&nbsp;&nbsp;Type the following commands at the commandline (terminal app):
 
 &nbsp;&nbsp;&nbsp;&nbsp;**sudo easy_install pip**  
-&nbsp;&nbsp;&nbsp;&nbsp;**pip install pyephem**  
+&nbsp;&nbsp;&nbsp;&nbsp;**pip uninstall pyephem**  
+&nbsp;&nbsp;&nbsp;&nbsp;**pip install ephem**  
 &nbsp;&nbsp;&nbsp;&nbsp;**pip install skyfield**  
 &nbsp;&nbsp;&nbsp;&nbsp;**pip install pandas**  
 
