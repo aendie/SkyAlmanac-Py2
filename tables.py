@@ -22,11 +22,16 @@
 #       will be removed from Python at some later time. See:
 # https://docs.python.org/3/whatsnew/3.0.html#pep-3101-a-new-approach-to-string-formatting
 
-import config
+# Standard library imports
 import datetime		# required for .timedelta()
 import sys			# required for .stdout.write()
-from alma_ephem import *
+import math
+# Third party imports
+import ephem
+# Local application imports
 from alma_skyfield import *
+from alma_ephem import *
+import config
 
 UpperLists = [[], [], []]    # moon GHA per hour for 3 days
 LowerLists = [[], [], []]    # moon colong GHA per hour for 3 days
@@ -859,10 +864,12 @@ def twilighttab(date):
 def lunatikz(phase):
     # argument: moon phase (0:new to π:full to 2π:new)
     # returns the code for a moon image overlaid with a shadow (pardon the function name)
-    radius = 0.375  # moon image radius (cm)
-    diam   = 0.75   # moon image diameter (cm)
-    top    = diam   # top of moon (cm)
-    bottom = 0.0    # bottom of moon (cm)
+    f      = 0.01     # empirical fudge factor to position moon's shadow exactly over image
+    radius = 0.375    # moon image radius (cm)
+    xstart = radius + f
+    diam   = 0.75     # moon image diameter (cm)
+    top    = diam + f # top of moon (cm)
+    bottom = 0.0 + f  # bottom of moon (cm)
     if phase < ephem.pi*0.5:    # new moon to 1st quarter
         ystart = top
         fr_angle = 90           # trace a semicircle anticlockwise from top to bottom
@@ -895,9 +902,9 @@ def lunatikz(phase):
     tikz = r'''\multicolumn{{1}}{{|c|}}{{\multirow{{3}}{{*}}
 {{\begin{{tikzpicture}}
 \node[anchor=south west,inner sep=0] at (0,0) {{\includegraphics[width=0.75cm]{{croppedmoon.png}}}};
-\path [fill=darknight, opacity=0.75] (0.375,{:5.3f}) arc [x radius=0.375, y radius=0.375, start angle={:d}, end angle={:d}]  arc [x radius={:f}, y radius=0.375, start angle={:d}, end angle={:d}];
+\path [fill=darknight, opacity=0.75] ({:5.3f},{:5.3f}) arc [x radius=0.375, y radius=0.375, start angle={:d}, end angle={:d}]  arc [x radius={:f}, y radius=0.375, start angle={:d}, end angle={:d}];
 \end{{tikzpicture}}}}}}\\
-'''.format(ystart, fr_angle, to_angle, xradius, ret_angle, end_angle)
+'''.format(xstart, ystart, fr_angle, to_angle, xradius, ret_angle, end_angle)
     return tikz
 
 
@@ -935,7 +942,7 @@ def doublepage(date, page1):
     page = page + r'''
 \sffamily
 \noindent
-{}\textbf{{{}, {}, {}   ({}.,  {}.,  {}.)}}'''.format(leftindent,date.strftime("%B %d"),(date+datetime.timedelta(days=1)).strftime("%d"),(date+datetime.timedelta(days=2)).strftime("%d"),date.strftime("%a"),(date+datetime.timedelta(days=1)).strftime("%a"),(date+datetime.timedelta(days=2)).strftime("%a"))
+{}\textbf{{{}, {}, {} UT ({}.,  {}.,  {}.)}}'''.format(leftindent,date.strftime("%B %d"),(date+datetime.timedelta(days=1)).strftime("%d"),(date+datetime.timedelta(days=2)).strftime("%d"),date.strftime("%a"),(date+datetime.timedelta(days=1)).strftime("%a"),(date+datetime.timedelta(days=2)).strftime("%a"))
 
     if config.tbls == "m":
         page = page + r'\par'
@@ -957,7 +964,7 @@ def doublepage(date, page1):
 % ------------------ N E W   P A G E ------------------
 \newpage
 \begin{{flushright}}
-\textbf{{{} to {}}}{}%
+\textbf{{{} to {} UT}}{}%
 \end{{flushright}}\par
 \begin{{scriptsize}}
 '''.format(date.strftime("%Y %B %d"),(date+datetime.timedelta(days=2)).strftime("%b. %d"),rightindent)
@@ -1014,8 +1021,8 @@ def almanac(first_day, pagenum):
         rm1 = "10mm"
         tm = "21mm"     # data pages...
         bm = "18mm"
-        lm = "12mm"
-        rm = "8mm"
+        lm = "10.5mm"
+        rm = "9mm"
         if config.tbls == "m":
             tm = "10mm"
             bm = "15mm"
@@ -1082,7 +1089,7 @@ def almanac(first_day, pagenum):
     alm = alm + r'''
     \begin{titlepage}
     \begin{center}
-    \textsc{\Large Generated using PyEphem and Skyfield}\\
+    \textsc{\Large Generated using Ephem and Skyfield}\\
     \large http://rhodesmill.org/skyfield/\\[0.7cm]
     % TRIM values: left bottom right top
     \includegraphics[clip, trim=12mm 20cm 12mm 21mm, width=0.92\textwidth]{./A4chart0-180_P.pdf}\\[0.3cm]

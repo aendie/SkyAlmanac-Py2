@@ -1,6 +1,7 @@
 # SkyAlmanac-Py2
 
-SkyAlmanac-Py2 is a Python 2.7 script that creates the daily pages of the Nautical Almanac. These are tables that are needed for celestial navigation with a sextant. Although you are strongly advised to purchase the official Nautical Almanac, this program will reproduce the tables with no warranty or guarantee of accuracy.
+SkyAlmanac-Py2 is a Python 2.7 script that creates the daily pages of the Nautical Almanac **using the UT1 timescale**. :smiley: Official Nautical Almanacs employ a UT timescale (equivalent to UT1).
+These are tables that are needed for celestial navigation with a sextant. Although you are strongly advised to purchase the official Nautical Almanac, this program will reproduce the tables with no warranty or guarantee of accuracy.
 
 SkyAlmanac-Py2 was developed with the intention of having identical output format as SFalmanac-Py2. It is a hybrid version based on two astronomical libraries:  
 
@@ -53,20 +54,30 @@ Bugfix applied to correct the Meridian Passage times.
 
 A new option has been added into config.py: *moonimg = True* will display a graphic image of the moon phase (making the resulting PDF slightly larger). Use *moonimg = False* to revert to the previous format without the graphic moon image.
 
+**UPDATE: Mar 2021**
+
+&nbsp;&nbsp;&nbsp;&nbsp;***UT is the new timescale employed in the almanac.***
+
+Two new options have been added into config.py: *useIERS = True* instructs Skyfield (if >= 1.31) to download Earth orientation data from IERS (International Earth Rotation and Reference Systems Service). *ageIERS = 30* instructs Skyfield to download fresh data from IERS if older tham that number of days. This implies greater accuracy for the generated almanacs (if Skyfield >= 1.31).
+
+Note that although you may be using the *de421.bsp* ephemeris (valid from 1900 to 2050), the IERS currently specifies the validity of Earth Orientation Parameters (EOP) from 2nd January 1973 to 
+15th May 2022. Refer to the [IERS web site](https://www.iers.org/IERS/EN/Home/home_node.html) for current information.
+
 ## Requirements
 
 &nbsp;&nbsp;&nbsp;&nbsp;Computation is done by the free PyEphem and Skyfield libraries.  
-&nbsp;&nbsp;&nbsp;&nbsp;Typesetting is done by MiKTeX or TeX Live so you first need to install:
+&nbsp;&nbsp;&nbsp;&nbsp;Typesetting is typically done by MiKTeX or TeX Live.  
+&nbsp;&nbsp;&nbsp;&nbsp;These need to be installed:
 
 * Python v2.x (2.6 or later)
 * Skyfield 1.31 (for best accuracy use 1.31 or higher - see the Skyfield Changelog)
-* Pandas (to load the Hipparcos catalog; tested: 0.24.2, 0.25.3)
+* Pandas 0.24 (to load the Hipparcos catalog; tested: 0.24.2)
 * Ephem 3.7.6 or 3.7.7
-* TeX/LaTeX&nbsp;&nbsp;or&nbsp;&nbsp;MiKTeX&nbsp;&nbsp;or&nbsp;&nbsp;TeX Live
+* MiKTeX&nbsp;&nbsp;or&nbsp;&nbsp;TeX Live
 
-&nbsp;&nbsp;&nbsp;&nbsp;**DEPRECATION:** Python 2.7 will reach the end of its life on January 1st, 2020.  
-&nbsp;&nbsp;&nbsp;&nbsp;Please upgrade your Python as Python 2.7 won't be maintained after that date.  
-&nbsp;&nbsp;&nbsp;&nbsp;A future version of pip will drop support for Python 2.7.
+&nbsp;&nbsp;&nbsp;&nbsp;**DEPRECATION: Python 2.7 reached the end of its life on January 1st, 2020.**  
+&nbsp;&nbsp;&nbsp;&nbsp;**Please upgrade your Python as Python 2.7 is no longer maintained.**  
+&nbsp;&nbsp;&nbsp;&nbsp;**pip 21.0 dropped support for Python 2.7 in January 2021.**
 
 ## Files required in the execution folder:
 

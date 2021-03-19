@@ -17,9 +17,13 @@
 #     with this program; if not, write to the Free Software Foundation, Inc.,
 #     51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-import sys
+# Standard library imports
 import os
-from math import *
+import sys
+from math import pi as pi
+from math import cos as cos
+from math import tan as tan
+from math import sqrt as sqrt
 
 def degmin(deg):
     #changes decimal degrees to the format usually used in the nautical almanac. (ddd°mm.m')

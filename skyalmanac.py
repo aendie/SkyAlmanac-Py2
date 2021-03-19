@@ -17,21 +17,23 @@
 #   You should have received a copy of the GNU General Public License along
 #   with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import tables
-import suntables 
+# Standard library imports
 import os
 import sys
 import time
 import datetime
+# Local application imports
+import tables
+import suntables 
 import config
-from alma_skyfield import init
+from alma_skyfield import init_sf
 
 ##Main##
 if config.ephndx not in set([0, 1, 2]):
     print("Error - Please choose a valid ephemeris in config.py")
     sys.exit(0)
 
-ts = init()     # in alma_skyfield
+ts = init_sf()     # in alma_skyfield
 d = datetime.datetime.utcnow().date()
 first_day = datetime.date(d.year, d.month, d.day)
 
@@ -112,7 +114,7 @@ if s in set(['1', '2', '3', '4']):
 
     if s == '1':
         print "Be patient - this may take a while."
-##        config.init()		# initialize log file
+##        config.initLOG()		# initialize log file
         for yearint in range(int(yearfr),int(yearto)+1):
             start = time.time()
             year = "{:4d}".format(yearint)  # year = "%4d" %yearint
@@ -159,7 +161,7 @@ if s in set(['1', '2', '3', '4']):
                 os.remove("sunalmanac{}{}.aux".format(ff,year+DecFmt))
 
     elif s == '3':
-##        config.init()		# initialize log file
+##        config.initLOG()		# initialize log file
         start = time.time()
         msg = "\nCreating nautical almanac tables - from {}".format(sdmy)
         print(msg)
