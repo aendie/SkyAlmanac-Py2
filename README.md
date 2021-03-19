@@ -1,6 +1,6 @@
 # SkyAlmanac-Py2
 
-SkyAlmanac-Py2 is a Python 2.7 script that creates the daily pages of the Nautical Almanac **using the UT1 timescale**. :smiley: Official Nautical Almanacs employ a UT timescale (equivalent to UT1).
+SkyAlmanac-Py2 is a Python 2.7 script that creates the daily pages of the Nautical Almanac **using the UT1 timescale** :smiley:. Official Nautical Almanacs employ a UT timescale (equivalent to UT1).
 These are tables that are needed for celestial navigation with a sextant. Although you are strongly advised to purchase the official Nautical Almanac, this program will reproduce the tables with no warranty or guarantee of accuracy.
 
 SkyAlmanac-Py2 was developed with the intention of having identical output format as SFalmanac-Py2. It is a hybrid version based on two astronomical libraries:  
@@ -56,7 +56,7 @@ A new option has been added into config.py: *moonimg = True* will display a grap
 
 **UPDATE: Mar 2021**
 
-&nbsp;&nbsp;&nbsp;&nbsp;***UT is the new timescale employed in the almanac.***
+&nbsp;&nbsp;&nbsp;&nbsp;:smiley:&nbsp;&nbsp;***UT is the new timescale employed in the almanac.***&nbsp;&nbsp;:smiley:
 
 Two new options have been added into config.py: *useIERS = True* instructs Skyfield (if >= 1.31) to download Earth orientation data from IERS (International Earth Rotation and Reference Systems Service). *ageIERS = 30* instructs Skyfield to download fresh data from IERS if older tham that number of days. This implies greater accuracy for the generated almanacs (if Skyfield >= 1.31).
 
