@@ -56,7 +56,7 @@ A new option has been added into config.py: *moonimg = True* will display a grap
 
 **UPDATE: Mar 2021**
 
-&nbsp;&nbsp;&nbsp;&nbsp;:smiley:&nbsp;&nbsp;***UT is the new timescale employed in the almanac.***&nbsp;&nbsp;:smiley:
+&emsp;:smiley:&ensp;***UT is the new timescale employed in the almanac.***&ensp;:smiley:
 
 Two new options have been added into config.py: *useIERS = True* instructs Skyfield (if >= 1.31) to download Earth orientation data from IERS (International Earth Rotation and Reference Systems Service). *ageIERS = 30* instructs Skyfield to download fresh data from IERS if older tham that number of days. This implies greater accuracy for the generated almanacs (if Skyfield >= 1.31).
 
@@ -65,19 +65,19 @@ Note that although you may be using the *de421.bsp* ephemeris (valid from 1900 t
 
 ## Requirements
 
-&nbsp;&nbsp;&nbsp;&nbsp;Computation is done by the free PyEphem and Skyfield libraries.  
-&nbsp;&nbsp;&nbsp;&nbsp;Typesetting is typically done by MiKTeX or TeX Live.  
-&nbsp;&nbsp;&nbsp;&nbsp;These need to be installed:
+&emsp;Computation is done by the free PyEphem and Skyfield libraries.  
+&emsp;Typesetting is typically done by MiKTeX or TeX Live.  
+&emsp;These need to be installed:
 
 * Python v2.x (2.6 or later)
 * Skyfield 1.31 (for best accuracy use 1.31 or higher - see the Skyfield Changelog)
 * Pandas 0.24 (to load the Hipparcos catalog; tested: 0.24.2)
 * Ephem 3.7.6 or 3.7.7
-* MiKTeX&nbsp;&nbsp;or&nbsp;&nbsp;TeX Live
+* MiKTeX&ensp;or&ensp;TeX Live
 
-&nbsp;&nbsp;&nbsp;&nbsp;**DEPRECATION: Python 2.7 reached the end of its life on January 1st, 2020.**  
-&nbsp;&nbsp;&nbsp;&nbsp;**Please upgrade your Python as Python 2.7 is no longer maintained.**  
-&nbsp;&nbsp;&nbsp;&nbsp;**pip 21.0 dropped support for Python 2.7 in January 2021.**
+&emsp;**DEPRECATION: Python 2.7 reached the end of its life on January 1st, 2020.**  
+&emsp;**Please upgrade your Python as Python 2.7 is no longer maintained.**  
+&emsp;**pip 21.0 dropped support for Python 2.7 in January 2021.**
 
 ## Files required in the execution folder:
 
@@ -87,84 +87,84 @@ Note that although you may be using the *de421.bsp* ephemeris (valid from 1900 t
 * A4chart0-180_P.pdf
 * A4chart180-360_P.pdf
 
-&nbsp;&nbsp;&nbsp;&nbsp;If upgrading from an older version of Skyfield to 1.31 or higher, these files may be deleted:  
-&nbsp;&nbsp;&nbsp;&nbsp;**deltat.data** and **deltat.preds**
+&emsp;If upgrading from an older version of Skyfield to 1.31 or higher, these files may be deleted:  
+&emsp;**deltat.data** and **deltat.preds**
 
 ### INSTALLATION GUIDELINES on Windows 10:
 
-&nbsp;&nbsp;&nbsp;&nbsp;Tested on Windows 10 Pro, Version 20H2 with an AMD Ryzen 7 3700X 8-Core Processor  
+&emsp;Tested on Windows 10 Pro, Version 20H2 with an AMD Ryzen 7 3700X 8-Core Processor  
 
-&nbsp;&nbsp;&nbsp;&nbsp;Install Python 2.7 (do not add python.exe to path)  
-&nbsp;&nbsp;&nbsp;&nbsp;Install MiKTeX 20.11 from https://miktex.org/  
-&nbsp;&nbsp;&nbsp;&nbsp;When MiKTeX first runs it will require installation of additional packages.  
-&nbsp;&nbsp;&nbsp;&nbsp;Run Command Prompt as Administrator; go to your Python Scripts folder and execute, e.g.:
+&emsp;Install Python 2.7 (do not add python.exe to path)  
+&emsp;Install MiKTeX 20.11 from https://miktex.org/  
+&emsp;When MiKTeX first runs it will require installation of additional packages.  
+&emsp;Run Command Prompt as Administrator; go to your Python Scripts folder and execute, e.g.:
 
-&nbsp;&nbsp;&nbsp;&nbsp;**cd C:\\Python27\\Scripts**  
-&nbsp;&nbsp;&nbsp;&nbsp;**pip install wheel**  
-&nbsp;&nbsp;&nbsp;&nbsp;**pip uninstall pyephem**  
-&nbsp;&nbsp;&nbsp;&nbsp;**pip install ephem**  
-&nbsp;&nbsp;&nbsp;&nbsp;**pip install skyfield**  
-&nbsp;&nbsp;&nbsp;&nbsp;**pip install pandas**  
+&emsp;**cd C:\\Python27\\Scripts**  
+&emsp;**pip install wheel**  
+&emsp;**pip uninstall pyephem**  
+&emsp;**pip install ephem**  
+&emsp;**pip install skyfield**  
+&emsp;**pip install pandas**  
 
-&nbsp;&nbsp;&nbsp;&nbsp;NOTE: if Python 3 is already installed, you need to be in the Scripts folder - otherwise the Py3 version of pip will execute.  
-&nbsp;&nbsp;&nbsp;&nbsp;NOTE: you may get the following error:  
-&nbsp;&nbsp;&nbsp;&nbsp;**error: Microsoft Visual C++ 9.0 is required. Get it from http://aka.ms/vcpython27**
+&emsp;NOTE: if Python 3 is already installed, you need to be in the Scripts folder - otherwise the Py3 version of pip will execute.  
+&emsp;NOTE: you may get the following error:  
+&emsp;**error: Microsoft Visual C++ 9.0 is required. Get it from http://aka.ms/vcpython27**
 
-&nbsp;&nbsp;&nbsp;&nbsp;On Windows 10 Version 2004 and 20H2 there is currently a bug that may cause the following error:  
-&nbsp;&nbsp;&nbsp;&nbsp;**RuntimeError: The current Numpy installation fails to pass a sanity check due to a bug in the windows runtime.**  
-&nbsp;&nbsp;&nbsp;&nbsp;The final resolution is expected end of January 2021, however the following workaround will bypass the problem:  
-&nbsp;&nbsp;&nbsp;&nbsp;**pip uninstall numpy**  
-&nbsp;&nbsp;&nbsp;&nbsp;**pip install numpy==1.19.3**  
+&emsp;On Windows 10 Version 2004 and 20H2 there is currently a bug that may cause the following error:  
+&emsp;**RuntimeError: The current Numpy installation fails to pass a sanity check due to a bug in the windows runtime.**  
+&emsp;The final resolution is expected end of January 2021, however the following workaround will bypass the problem:  
+&emsp;**pip uninstall numpy**  
+&emsp;**pip install numpy==1.19.3**  
 
-&nbsp;&nbsp;&nbsp;&nbsp;NOTE: if Python 3 is already installed, you need to be in the Scripts folder - otherwise the Py3 version of pip will execute.
+&emsp;NOTE: if Python 3 is already installed, you need to be in the Scripts folder - otherwise the Py3 version of pip will execute.
 
-&nbsp;&nbsp;&nbsp;&nbsp;Put the SkyAalmanac files in a new folder, run Command Prompt in that folder and start with:  
-&nbsp;&nbsp;&nbsp;&nbsp;**python.exe skyalmanac.py**  
+&emsp;Put the SkyAalmanac files in a new folder, run Command Prompt in that folder and start with:  
+&emsp;**python.exe skyalmanac.py**  
 
-&nbsp;&nbsp;&nbsp;&nbsp;However, if Python 3 is also installed, start with:  
-&nbsp;&nbsp;&nbsp;&nbsp;**py -2 skyalmanac.py**  
+&emsp;However, if Python 3 is also installed, start with:  
+&emsp;**py -2 skyalmanac.py**  
 
 
 ### INSTALLATION GUIDELINES on Ubuntu 18.04:
 
-&nbsp;&nbsp;&nbsp;&nbsp;Ubuntu 18 and earlier come with Python 2 preinstalled,  
-&nbsp;&nbsp;&nbsp;&nbsp;however pip may need to be installed:  
-&nbsp;&nbsp;&nbsp;&nbsp;**sudo apt install python-pip**  
-&nbsp;&nbsp;&nbsp;&nbsp;Note: Ubuntu 20.04 comes with Python 3 preinstalled, which is preferable to Python 2.
+&emsp;Ubuntu 18 and earlier come with Python 2 preinstalled,  
+&emsp;however pip may need to be installed:  
+&emsp;**sudo apt install python-pip**  
+&emsp;Note: Ubuntu 20.04 comes with Python 3 preinstalled, which is preferable to Python 2.
 
-&nbsp;&nbsp;&nbsp;&nbsp;Install the following TeX Live package:  
-&nbsp;&nbsp;&nbsp;&nbsp;**sudo apt install texlive-latex-extra**
+&emsp;Install the following TeX Live package:  
+&emsp;**sudo apt install texlive-latex-extra**
 
-&nbsp;&nbsp;&nbsp;&nbsp;Install the required astronomical libraries etc.:  
-&nbsp;&nbsp;&nbsp;&nbsp;**pip install wheel**  
-&nbsp;&nbsp;&nbsp;&nbsp;**pip uninstall pyephem**  
-&nbsp;&nbsp;&nbsp;&nbsp;**pip install ephem**  
-&nbsp;&nbsp;&nbsp;&nbsp;**pip install skyfield**  
-&nbsp;&nbsp;&nbsp;&nbsp;**pip install pandas**  
+&emsp;Install the required astronomical libraries etc.:  
+&emsp;**pip install wheel**  
+&emsp;**pip uninstall pyephem**  
+&emsp;**pip install ephem**  
+&emsp;**pip install skyfield**  
+&emsp;**pip install pandas**  
 
-&nbsp;&nbsp;&nbsp;&nbsp;Put the SkyAlmanac files in a folder and start with:  
-&nbsp;&nbsp;&nbsp;&nbsp;**python skyalmanac.py**  
+&emsp;Put the SkyAlmanac files in a folder and start with:  
+&emsp;**python skyalmanac.py**  
 
 
 ### INSTALLATION GUIDELINES on MAC:
 
-&nbsp;&nbsp;&nbsp;&nbsp;Every Mac comes with python preinstalled.  
-&nbsp;&nbsp;&nbsp;&nbsp;(Please choose the Python 3.7 version of SkyAlmanac if Python 3.* is installed.)  
-&nbsp;&nbsp;&nbsp;&nbsp;You need to install the PyEphem and Skyfield libraries to use SkyAlmanac.  
-&nbsp;&nbsp;&nbsp;&nbsp;Type the following commands at the commandline (terminal app):
+&emsp;Every Mac comes with python preinstalled.  
+&emsp;(Please choose the Python 3.7 version of SkyAlmanac if Python 3.* is installed.)  
+&emsp;You need to install the PyEphem and Skyfield libraries to use SkyAlmanac.  
+&emsp;Type the following commands at the commandline (terminal app):
 
-&nbsp;&nbsp;&nbsp;&nbsp;**sudo easy_install pip**  
-&nbsp;&nbsp;&nbsp;&nbsp;**pip uninstall pyephem**  
-&nbsp;&nbsp;&nbsp;&nbsp;**pip install ephem**  
-&nbsp;&nbsp;&nbsp;&nbsp;**pip install skyfield**  
-&nbsp;&nbsp;&nbsp;&nbsp;**pip install pandas**  
+&emsp;**sudo easy_install pip**  
+&emsp;**pip uninstall pyephem**  
+&emsp;**pip install ephem**  
+&emsp;**pip install skyfield**  
+&emsp;**pip install pandas**  
 
-&nbsp;&nbsp;&nbsp;&nbsp;If this command fails, your Mac asks you if you would like to install the header files.  
-&nbsp;&nbsp;&nbsp;&nbsp;Do so - you do not need to install the full IDE - and try again.
+&emsp;If this command fails, your Mac asks you if you would like to install the header files.  
+&emsp;Do so - you do not need to install the full IDE - and try again.
 
-&nbsp;&nbsp;&nbsp;&nbsp;Install TeX/LaTeX from http://www.tug.org/mactex/
+&emsp;Install TeX/LaTeX from http://www.tug.org/mactex/
 
-&nbsp;&nbsp;&nbsp;&nbsp;Now you are almost ready. Put the SkyAlmanac files in any directory and start with:  
-&nbsp;&nbsp;&nbsp;&nbsp;**python skyalmanac**  
-&nbsp;&nbsp;&nbsp;&nbsp;or  
-&nbsp;&nbsp;&nbsp;&nbsp;**./skyalmanac**
+&emsp;Now you are almost ready. Put the SkyAlmanac files in any directory and start with:  
+&emsp;**python skyalmanac**  
+&emsp;or  
+&emsp;**./skyalmanac**
