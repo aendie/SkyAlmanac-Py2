@@ -17,9 +17,8 @@
 #     with this program; if not, write to the Free Software Foundation, Inc.,
 #     51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-# Standard library imports
-import os
 import sys
+import os
 from math import pi as pi
 from math import cos as cos
 from math import tan as tan
@@ -262,7 +261,7 @@ def makelatex():
 	lx = r"""\documentclass[ 10pt, twoside, a4paper]{scrreprt}
 	\usepackage[automark]{scrlayer-scrpage}
 	\pagestyle{scrheadings}
-	\clearscrheadfoot
+	\clearpairofpagestyles
 	\chead{\large \textbf{Increments and Corrections}}
     \usepackage[utf8]{inputenc}
     \usepackage[english]{babel}
